@@ -1,16 +1,16 @@
-def encode(password):
-    return "".join(chr(ord(char) + 3) for char in password)
 
+def encode(password):
+    return "".join(str(((int(char) + 3) % 10)) for char in password)
 
 def decode(password):
-    return "".join(chr(ord(char) - 3) for char in password)
+    return "".join(str(((int(char) + 7) % 10)) for char in password)
 
 
 def main():
     stored_password = None
     while True:
-        print("Menu\n-------------")
-        print("1. Encode\n2. Decode\n3. Quit")
+        print("\nMenu\n-------------")
+        print("1. Encode\n2. Decode\n3. Quit\n")
         option = input("Please enter an option: ")
 
         if option == "1":
